@@ -3,6 +3,7 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import logger from 'morgan'
+import * as skillsDb from "./data/skills-db.js"
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
@@ -31,6 +32,15 @@ app.use(
 // mounted routers
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+
+app.get("/skills", function(req, res){
+  skillsDb.find({}, function(error, skills){
+    res.render("skills/index", {
+      skills: skills,
+      error: error
+    })
+  })
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
