@@ -7,7 +7,7 @@ import * as skillsDb from "./data/skills-db.js"
 
 // import routers
 import { router as indexRouter } from './routes/index.js'
-import { router as usersRouter } from './routes/users.js'
+import { router as skillsRouter } from './routes/skills.js'
 
 // set up app
 const app = express()
@@ -31,7 +31,15 @@ app.use(
 
 // mounted routers
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
+app.use('/skills', skillsRouter)
+
+app.get("/", function(req, res){
+  res.redirect("/skills")
+})
+
+app.get('/home', function(req, res) {
+  res.render('home')
+})
 
 app.get("/skills", function(req, res){
   skillsDb.find({}, function(error, skills){
