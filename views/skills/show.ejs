@@ -10,15 +10,11 @@
   <h1>Skills</h1>
   <% if(error) { %> 
     <h2><%= error %></h2>  
+  <% } else { %> 
+    <h2>Skill #<%= todo._id %></h2>
+    <h3><%= skill.text %></h3>
+    <p>Achieved: <%= skill.achieved ? "Yes" : "No" %></p>
   <% } %> 
-  <ul>
-    <% skills.forEach(function(skill){ %>
-      <li>
-        <a href="/skills/<%=skills._id%>"><%= skill.text %></a> 
-        -
-        <%= skill.achieved ? "achieved" : "not achieved" %> 
-      </li>
-    <% }) %>
-  </ul>
+  <a href="/skills">Go Back</a>
 </body>
 </html>
