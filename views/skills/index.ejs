@@ -12,9 +12,9 @@
     <h2><%= error %></h2>  
   <% } %> 
   <ul>
-    <% skills.forEach(function(skill){ %>
+    <% skills.forEach(skill => { %>
       <li>
-        <a href="/skills/<%=skills._id%>"><%= skill.text %></a> 
+        <a href="/skills/<%= skill._id %>"><%= skill.text %></a> 
         -
         <%= skill.achieved ? "achieved" : "not achieved" %> 
       </li>
