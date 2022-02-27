@@ -4,7 +4,8 @@ function index(req, res) {
   skillsDb.find({}, function(error, skills){
     res.render("skills/index", {
       skills: skills,
-      error: error
+      error: error,
+      title: "title"
     })
   })
 }
@@ -13,12 +14,18 @@ function show(req, res) {
   skillsDb.findById(req.params.id, function(error, skill){
     res.render("skills/show", {
       skill: skill,
-      error: error
+      error: error,
+      title: "title"
     })
   })
 }
 
+function newSkill(req, res) {
+  res.render("skills/new")
+}
+
 export {
   index,
-  show
+  show,
+  newSkill as new
 }

@@ -16,9 +16,10 @@
       <li>
         <a href="/skills/<%= skill._id %>"><%= skill.text %></a> 
         -
-        <%= skill.achieved ? "achieved" : "not achieved" %> 
+        <%= skill.achieved ? "Achieved ⭐️" : "Not Achieved ❌" %> 
       </li>
     <% }) %>
   </ul>
+  <a href="/skills/new">Add A Skill</a>
 </body>
 </html>
